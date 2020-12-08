@@ -5,5 +5,5 @@ PYTHONPATH=REPO_DIR:$PYTHONPATH pre-commit run "$1" -a --config "$REPO_DIR"/tool
 # Display coverage report
 if [ -z "$1" ] || [ "$1" == "pytest" ]
   then
-    coverage report
+    coverage report || true
 fi
