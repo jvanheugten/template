@@ -7,7 +7,10 @@ WORKDIR ./workdir
 # Copy the repo to the WORKDIR
 COPY . ./
 
+# Update conda to latest version
+RUN conda update -y -n base -c defaults conda
+
+# Create conda environment and install Python requirements
 RUN conda env create -n repo -f requirements.yml \
-    && source activate repo \
-    && echo "Conda env created and activated." \
-    || echo "Failed creation and activation of Conda env."
+    && echo "Conda env created successfully." \
+    || echo "Failed creation of Conda env."

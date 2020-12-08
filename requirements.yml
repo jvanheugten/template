@@ -2,5 +2,6 @@ name: template
 dependencies:
   - python=3.8.5
   - pip
+  - git
   - pip:
-    - -r file:requirements/dev.txt
+    - -r ./requirements/dev.txt
