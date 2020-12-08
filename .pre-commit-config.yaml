@@ -13,12 +13,12 @@ repos:
     -   id: trailing-whitespace
 -   repo: local
     hooks:
-    -   id: shellcheck
-        name: shellcheck - Lint shell scripts
-        description: Performs linting on bash scripts
-        entry: shellcheck
+    -   id: codespell
+        name: codespell - Check for common misspellings in text files
+        description: Check for common misspellings in text files (codespell)
+        entry: codespell
         language: system
-        files: ".sh"
+        types: [text]
     -   id: nbstripout
         name: nbstripout - Strip jupyter notebooks
         description: Stripping Jupyter notebook output (nbstripout)

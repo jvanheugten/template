@@ -13,12 +13,12 @@ repos:
     -   id: trailing-whitespace
 -   repo: local
     hooks:
-    -   id: shellcheck
-        name: shellcheck - Lint shell scripts
-        description: Performs linting on bash scripts
-        entry: shellcheck
+    -   id: codespell
+        name: codespell - Check for common misspellings in text files
+        description: Check for common misspellings in text files (codespell)
+        entry: codespell
         language: system
-        files: ".sh"
+        types: [text]
     -   id: nbstripout
         name: nbstripout - Strip jupyter notebooks
         description: Stripping Jupyter notebook output (nbstripout)
@@ -39,6 +39,12 @@ repos:
         args: ["--check"]
         language: system
         types: [python]
+    -   id: shellcheck
+        name: shellcheck - Lint shell scripts
+        description: Performs linting on bash scripts
+        entry: shellcheck
+        language: system
+        files: ".sh"
     -   id: interrogate
         name: interrogate - Check Python docstring coverage
         description: Check Python docstring coverage (interrogate)
@@ -57,6 +63,12 @@ repos:
         name: darglint - Check Python docstring arguments
         description: Check Python docstring arguments (darglint)
         entry: darglint
+        language: system
+        types: [python]
+    -   id: mypy
+        name: mypy - Type check Python files
+        description: Type check Python files (mypy)
+        entry: mypy
         language: system
         types: [python]
     -   id: pylint
