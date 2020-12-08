@@ -52,7 +52,11 @@ repos:
         args: ["-c", "pyproject.toml", "-v"]
         language: system
         types: [python]
-        exclude: ^setup.py
+        exclude: |
+            (?x)^(
+                docs|
+                setup.py
+            )
     -   id: pydocstyle
         name: pydocstyle - Check Python docstring style
         description: Check Python docstring style (pydocstyle)
@@ -71,12 +75,22 @@ repos:
         entry: mypy
         language: system
         types: [python]
+        exclude: |
+            (?x)^(
+                docs|
+                setup.py
+            )
     -   id: pylint
         name: pylint - Lint Python files
         description: Lint Python files (pylint)
         entry: pylint
         language: system
         types: [python]
+        exclude: |
+            (?x)^(
+                docs|
+                setup.py
+            )
     -   id: pytest
         name: pytest - Run Python unit and integration tests
         description: Run Python unit and integration tests (pytest)
