@@ -44,45 +44,45 @@ Future enhancements:
 # Development
 
 ## Setup after cloning this repository
-1. Setup a conda environment (replace `<env_name>` with a suitable name):
-```conda env create -n <env_name> -f requirements.yml```
-This sets up an environment to track and encapsulate the dependencies of the project.
-When working on this project switch to the environment first, using:
-```conda activate <env_name>```
+1. Setup a conda environment (replace `<env_name>` with a suitable name):\
+```conda env create -n <env_name> -f requirements.yml```\
+This sets up an environment to track and encapsulate the dependencies of the project.\
+When working on this project switch to the environment first, using:\
+```conda activate <env_name>```\
 To exit the environment use: `conda deactivate <env_name>`
 
-2. Install the git pre-commit hooks:
-```pre-commit install```
+1. Install the git pre-commit hooks:\
+```pre-commit install```\
 This will perform sanity checks and format your code before git adds the (updated) files to the git repository.
 
 ## Workflow
 
 ## Tracking requirements and their dependencies
-To keep track of requirements, add them to the `requirements/base.in` file in the appropriate section.
-After adding or removing requirements, the requirements and their dependencies can be pinned to specific versions by running:
-```pip-compile-multi```
-This will pin all requirements and dependencies to specific versions in the `requirements/*.txt` files for reproducibility.
+To keep track of requirements, add them to the `requirements/base.in` file in the appropriate section.\
+After adding or removing requirements, the requirements and their dependencies can be pinned to specific versions by running:\
+```pip-compile-multi```\
+This will pin all requirements and dependencies to specific versions in the `requirements/*.txt` files for reproducibility.\
 The `base` file contains deployment dependencies, while the `dev` file contains development dependencies.
 
 ## Style and Continuous Integration checks/formatters
 
 ### Local (pre-commit) checks and formatters
-To run the local pre-commit checks, execute:
-```pre-commit run```
+To run the local pre-commit checks, execute:\
+```pre-commit run```\
 Note: Only _staged_ files will be checked.
 
-To run on all git-tracked files in the repository: `pre-commit run --all-files` or `pre-commit run -a`.
-Note: This will still _not_ run on _untracked_ files. First stage any untracked/modified files you which to check.
+To run on all git-tracked files in the repository: `pre-commit run --all-files` or `pre-commit run -a`.\
+Note: This will still _not_ run on _untracked_ files. First stage any untracked/modified files you which to check.\
 The local pre-commit checks are run using `pre-commit` based on the configuration in `.pre-commit-config.yaml`.
 
 For convenience, it is possible to run a single check, for example, for `pylint` use `pre-commit run pylint`.
 
 ### Continuous Integration checks and formatters
-To run all CI checks, run:
-```./tools/ci_checks.sh```
+To run all CI checks, run:\
+```./tools/ci_checks.sh```\
 The script will check all files in the git repository.
 
-For convenience, it is possible to run a single check, for example, for `mypy`:
+For convenience, it is possible to run a single check, for example, for `mypy`:\
 ```./tools/ci_checks.sh mypy```
 
 The CI checks are run using `pre-commit` based on the configuration in `tools/ci-pre-commit-config.yaml`.
