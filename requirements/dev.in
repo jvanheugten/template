@@ -1,0 +1,18 @@
+-r base.in # load non-development requirements
+
+black
+codespell
+coverage
+darglint
+mypy
+pip-licenses
+pip-compile-multi
+pipdeptree
+pycodestyle
+pydocstyle
+pylint
+pytest
+pytest-clarity
+pytest-cov
+sphinx
+sphinx-autodoc-typehints
