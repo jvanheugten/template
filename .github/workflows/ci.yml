@@ -19,4 +19,4 @@ jobs:
       # Run the CI checks in the docker container
       # Note: The GITHUB_WORKSPACE volume (repo location) is mounted to /workdir in the container.
       - name: Run Docker container
-        run: docker run ci_run --volume ${GITHUB_WORKSPACE}:/workdir bash -c ./tools/ci_run.sh
+        run: docker run --volume ${GITHUB_WORKSPACE}:/workdir -t ci_run bash -c ./tools/ci_run.sh
