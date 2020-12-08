@@ -1,0 +1,74 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0
+    hooks:
+    -   id: check-added-large-files
+        args: ['--maxkb=500']
+    -   id: check-case-conflict
+    -   id: check-toml
+    -   id: check-merge-conflict
+    -   id: debug-statements
+    -   id: detect-private-key
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: local
+    hooks:
+    -   id: shellcheck
+        name: shellcheck - Lint shell scripts
+        description: Performs linting on bash scripts
+        entry: shellcheck
+        language: system
+        files: ".sh"
+    -   id: nbstripout
+        name: nbstripout - Strip jupyter notebooks
+        description: Stripping Jupyter notebook output (nbstripout)
+        entry: nbstripout
+        language: system
+        files: ".ipynb"
+    -   id: isort
+        name: isort - Sort Python imports
+        description: Formatting Python import order (isort)
+        entry: isort
+        args: ["--check"]
+        language: system
+        types: [python]
+    -   id: black
+        name: black - Format Python files
+        description: Formatting Python files (black)
+        entry: black
+        args: ["--check"]
+        language: system
+        types: [python]
+    -   id: interrogate
+        name: interrogate - Check Python docstring coverage
+        description: Check Python docstring coverage (interrogate)
+        entry: interrogate
+        args: ["-c", "pyproject.toml", "-v"]
+        language: system
+        types: [python]
+        exclude: ^setup.py
+    -   id: pydocstyle
+        name: pydocstyle - Check Python docstring style
+        description: Check Python docstring style (pydocstyle)
+        entry: pycodestyle
+        language: system
+        types: [python]
+    -   id: darglint
+        name: darglint - Check Python docstring arguments
+        description: Check Python docstring arguments (darglint)
+        entry: darglint
+        language: system
+        types: [python]
+    -   id: pylint
+        name: pylint - Lint Python files
+        description: Lint Python files (pylint)
+        entry: pylint
+        language: system
+        types: [python]
+    -   id: pytest
+        name: pytest - Run Python unit and integration tests
+        description: Run Python unit and integration tests (pytest)
+        entry: pytest
+        language: system
+        types: [python]
+        files: ^tests/
