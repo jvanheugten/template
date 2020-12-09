@@ -37,9 +37,15 @@ Features:
     * [interrogate](https://interrogate.readthedocs.io/): Python docstring coverage checker
     * [pydocstyle](https://github.com/PyCQA/pydocstyle): Python docstring style checker
   * [shellcheck](https://github.com/koalaman/shellcheck): Shell file linter
+  * [container-scan](https://github.com/Azure/container-scan): Scan Docker container for vulnerabilities using [Trivy](https://github.com/aquasecurity/trivy) and [Dockle](https://github.com/goodwithtech/dockle)\
+  Note: The vulnerability scan can be activated by uncommented the section in `tools/Dockerfile`.
 
 Future enhancements:
-* [MyST](https://myst-parser.readthedocs.io): Markdown support for sphinx documentation
+* [MyST](https://myst-parser.readthedocs.io): Markdown support for sphinx documentation.
+* Change to [Flinx](https://github.com/osteele/flinx) once it supports Read the Docs.
+* Or add [Sphinx setuptools integration](https://www.sphinx-doc.org/en/master/usage/advanced/setuptools.html).
+* Add centralized storage of project name, copyright, author, and release version.
+* Look into compressing Docker container using [conda-pack](https://pythonspeed.com/articles/conda-docker-image-size/).
 
 # Development
 
@@ -51,9 +57,11 @@ When working on this project switch to the environment first, using:\
 ```conda activate <env_name>```\
 To exit the environment use: `conda deactivate <env_name>`
 
-1. Install the git pre-commit hooks:\
+2. Install the git pre-commit hooks:\
 ```pre-commit install```\
 This will perform sanity checks and format your code before git adds the (updated) files to the git repository.
+
+3. Change the `# -- Project information` section in `docs/source/conf.py` to state the project name, copyright, author, and release version.
 
 ## Workflow
 
