@@ -1,7 +1,10 @@
 name: CI
 
-on: pull_request
-
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 jobs:
   ci_run:
 
@@ -14,9 +17,13 @@ jobs:
 
       # Build the docker container with our custom Dockerfile
       - name: Build Docker container
-        run: docker build --file tools/Dockerfile --tag ci_run .
+        run: docker build --file tools/Dockerfile --tag ci_run:${{ github.sha }} .
 
       # Run the CI checks in the docker container
       # Note: The GITHUB_WORKSPACE volume (repo location) is mounted to /workdir in the container.
       - name: Run Docker container
-        run: docker run --volume ${GITHUB_WORKSPACE}:/workdir -t ci_run bash -c ./tools/ci_run.sh
+        run: docker run --volume ${GITHUB_WORKSPACE}:/workdir -t ci_ru:${{ github.sha }} bash -c ./tools/ci_run.sh
+
+      - uses: Azure/container-scan@v0
+        with:
+          image-name: ci_run:${{ github.sha }}
