@@ -2,6 +2,14 @@
 
 This is a template Python repository.
 
+![GitHub](https://img.shields.io/github/license/jvanheugten/template)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jvanheugten/template/CI)
+![GitHub issues](https://img.shields.io/github/issues-raw/jvanheugten/template)
+![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/jvanheugten/template)
+![GitHub repo size](https://img.shields.io/github/repo-size/jvanheugten/template)\
+![GitHub forks](https://img.shields.io/github/forks/jvanheugten/template?style=social)
+![GitHub Repo stars](https://img.shields.io/github/stars/jvanheugten/template?style=social)
+
 Repository structure:
 
 * .github: Github Actions for Continuous Integration
