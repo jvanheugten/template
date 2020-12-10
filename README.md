@@ -3,6 +3,8 @@
 This is a template Python repository.
 
 ![GitHub](https://img.shields.io/github/license/jvanheugten/template)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/jvanheugten/template)
+![GitHub last commit](https://img.shields.io/github/last-commit/jvanheugten/template)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/jvanheugten/template/CI)
 ![GitHub issues](https://img.shields.io/github/issues-raw/jvanheugten/template)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/jvanheugten/template)
