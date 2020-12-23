@@ -24,7 +24,7 @@ Repository structure:
 
 
 Features:
-* [Sphinx](https://www.sphinx-doc.org): Documentation generator
+* [Jupyter-book](https://jupyterbook.org/): Documentation generator using Markdown, Jupyter, and Sphinx
 * [pip-compile-multi](https://pip-compile-multi.readthedocs.io/): Python requirement and dependency locking
 * Git [pre-commit](https://pre-commit.com/) hooks
   * [codespell](https://github.com/codespell-project/codespell): Check for common misspellings in text files.
@@ -48,13 +48,9 @@ Features:
     * [pydocstyle](https://github.com/PyCQA/pydocstyle): Python docstring style checker
   * [shellcheck](https://github.com/koalaman/shellcheck): Shell file linter
   * [container-scan](https://github.com/Azure/container-scan): Scan Docker container for vulnerabilities using [Trivy](https://github.com/aquasecurity/trivy) and [Dockle](https://github.com/goodwithtech/dockle)\
-  Note: The vulnerability scan can be activated by uncommented the section in `tools/Dockerfile`.
+  Note: The vulnerability scan can be activated by uncommenting the section in `tools/Dockerfile`.
 
 Future enhancements:
-* [MyST](https://myst-parser.readthedocs.io): Markdown support for sphinx documentation.
-* Change to [Flinx](https://github.com/osteele/flinx) once it supports Read the Docs.
-* Or add [Sphinx setuptools integration](https://www.sphinx-doc.org/en/master/usage/advanced/setuptools.html).
-* Add centralized storage of project name, copyright, author, and release version.
 * Look into compressing Docker container using [conda-pack](https://pythonspeed.com/articles/conda-docker-image-size/).
 
 # Development
@@ -71,7 +67,9 @@ To exit the environment use: `conda deactivate <env_name>`
 ```pre-commit install```\
 This will perform sanity checks and format your code before git adds the (updated) files to the git repository.
 
-3. Change the `# -- Project information` section in `docs/source/conf.py` to state the project name, copyright, author, and release version.
+3. Change the information in `setup.cfg`, such as, the project and package names, copyright, author, release version, license, etc.
+
+4. Change the information in `docs/_config.yml` to update the project name, copyright, author, version, etc.
 
 ## Workflow
 
@@ -96,7 +94,7 @@ The local pre-commit checks are run using `pre-commit` based on the configuratio
 For convenience, it is possible to run a single check, for example, for `pylint` use `pre-commit run pylint`.
 
 ### Continuous Integration checks and formatters
-To run all CI checks, run:\
+To manually and locally run all CI checks, run:\
 ```./tools/ci_checks.sh```\
 The script will check all files in the git repository.
 
@@ -108,7 +106,14 @@ The CI checks are run using `pre-commit` based on the configuration in `tools/ci
 ## Building the documentation
 To build the documentation run:
 ```
-cd docs
-make html
+jupyter-book build docs
 ```
-The documentation will be output in `docs/build/html`.
+The documentation will be output in `docs/_build/html`. Add `--all` to rebuild all docs from scratch instead of using cached files.
+
+To create a pdf file of the docs:
+```
+jupyter-book build --builder pdflatex docs
+```
+Note: The above requires [installing LaTeX](https://jupyterbook.org/advanced/pdf.html#pdf-latex).
+
+To push the documentation to Github Pages, see [this link](https://jupyterbook.org/publish/gh-pages.html?highlight=github).

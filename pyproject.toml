@@ -1,4 +1,4 @@
-# >>>> Style ====##
+# >>> Testing/Checkers >>>
 [tool.black]
 line-length = 100
 
@@ -39,6 +39,14 @@ quiet = false
 whitelist-regex = []
 color = true
 
+[tool.license_check]
+allowed_licenses = ["MIT", "BSD", "Apache", "LGPL", "MPL 2.0", "ISCL", "Python Software Foundation License", "PSF"]
+excluded_packages = ["pylint"]
+warn = true
+lookup = true
+# <<< Testing/Checkers <<<
+
+# See https://github.com/s0undt3ch/setuptools-declarative-requirements
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools", "wheel", "setuptools-declarative-requirements"]
 build-backend = "setuptools.build_meta"
