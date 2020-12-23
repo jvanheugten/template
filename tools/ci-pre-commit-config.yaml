@@ -75,6 +75,12 @@ repos:
         entry: mypy
         language: system
         types: [python]
+    -   id: pycodestyle
+        name: pycodestyle - Check Python code style
+        description: Check Python code style (pycodestyle)
+        entry: pycodestyle
+        language: system
+        types: [python]
     -   id: pylint
         name: pylint - Lint Python files
         description: Lint Python files (pylint)
