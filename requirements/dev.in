@@ -19,5 +19,5 @@ pytest
 pytest-clarity
 pytest-cov
 shellcheck-py
-sphinx
+jupyter-book
 sphinx-autodoc-typehints
