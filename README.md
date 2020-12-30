@@ -15,7 +15,7 @@ This is a template Python repository.
 Repository structure:
 
 * .github: Github Actions for Continuous Integration
-* docs: Sphinx (auto-generated) documentation
+* docs: Jupyter-book (auto-generated) documentation
 * notebooks: Jupyter notebooks
 * requirements: Python requirement files and their pinned versions
 * src: The main codebase
