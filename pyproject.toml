@@ -7,7 +7,7 @@ line_length = 100
 multi_line_output = 3
 
 [tool.pylint.messages_control]
-disable = "C0330, C0326"
+disable = "C0330, C0326, logging-fstring-interpolation"
 
 [tool.pylint.format]
 max-line-length = "100"
