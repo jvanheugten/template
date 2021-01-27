@@ -86,6 +86,7 @@ repos:
         description: Lint Python files (pylint)
         entry: pylint
         language: system
+        args: ["--disable=fixme"]
         types: [python]
     -   id: pytest
         name: pytest - Run Python unit and integration tests

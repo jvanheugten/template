@@ -11,4 +11,7 @@ Check out the content pages bundled with this sample book to get started.
 ```{eval-rst}
 .. automodule:: src.example
     :members:
+    :undoc-members:
+    :special-members: __init__
+    :show-inheritance:
 ```

@@ -1,0 +1,6 @@
+# Remove this file once darglint support pyproject.toml:
+# https://github.com/terrencepreilly/darglint/issues/130
+
+# Ignore functions that start with click (cli)
+[darglint]
+ignore_regex=^click*
