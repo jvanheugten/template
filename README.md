@@ -71,6 +71,8 @@ This will perform sanity checks and format your code before git adds the (update
 
 4. Change the information in `docs/_config.yml` to update the project name, copyright, author, version, etc.
 
+5. Change any settings in `pyproject.toml`, such as the folder for pytest coverage to check `addopts = "--cov=<folder> --no-cov-on-fail"`.
+
 ## Workflow
 
 ## Tracking requirements and their dependencies
@@ -102,6 +104,20 @@ For convenience, it is possible to run a single check, for example, for `mypy`:\
 ```./tools/ci_checks.sh mypy```
 
 The CI checks are run using `pre-commit` based on the configuration in `tools/ci-pre-commit-config.yaml`.
+
+### Turn off checking on a function/per-line basis
+In some cases it is needed to disable some of the checkers on a function/per-line basis.\
+Below is a list of comments to disable the checkers.\
+Use these sparingly and only if absolutely necessary!
+
+* Pylint: `# pylint: disable=<error_name>`
+* Black formatter: Create a `# fmt: off` and `# fmt: on` block.
+* isort: `# isort:skip`
+* Pycodestyle: `# noqa` or `"# noqa: <error_numbers>`
+* Pydocstyle: `# noqa` or `# noqa: <error_numbers>`
+* darglint: `# noqa: <error> <argument>`
+* mypy: `# type: ignore`
+* Pytest coverage: `# pragma: no cover`
 
 ## Building the documentation
 To build the documentation run:
