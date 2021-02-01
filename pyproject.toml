@@ -14,7 +14,7 @@ max-line-length = "100"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "--cov=src --no-cov-on-fail"
+addopts = "--cov=src --no-cov-on-fail"  # Change to your project folder: `--cov=<folder>`
 testpaths = [
     "tests",
     "tests/unit",
@@ -23,6 +23,9 @@ testpaths = [
 
 [tool.coverage.run]
 omit = ["tests/", "setup.py"]
+
+[tool.coverage.report]
+show_missing = true
 
 [tool.interrogate]
 ignore-init-method = true
